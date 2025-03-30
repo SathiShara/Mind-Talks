@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('bg_rating.jpg'); 
+      background-size: cover;
+      background-position: center;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .stars-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stars {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .fa-star {
+      color: #999;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .fa-star.checked {
+      color: #00ff15;
+    }
+
+    #ratingText {
+      font-size: 1.5em;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="stars-container">
+  <div id="stars" class="stars">
+    <span class="fa fa-star" data-rating="1"></span>
+    <span class="fa fa-star" data-rating="2"></span>
+    <span class="fa fa-star" data-rating="3"></span>
+    <span class="fa fa-star" data-rating="4"></span>
+    <span class="fa fa-star" data-rating="5"></span>
+  </div>
+  <p id="ratingText">Rate: <span id="selectedRating">0</span></p>
+  <p><h3>Please rate your experience with our counseling services </h3></p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const stars = document.querySelectorAll('.fa-star');
+    const ratingText = document.getElementById('ratingText');
+    const selectedRating = document.getElementById('selectedRating');
+
+    stars.forEach(function (star) {
+      star.addEventListener('click', function () {
+        const ratingValue = parseInt(star.getAttribute('data-rating'));
+        selectedRating.textContent = ratingValue;
+
+        // Remove the 'checked' class from all stars
+        stars.forEach(function (s) {
+          s.classList.remove('checked');
+        });
+
+        // Add the 'checked' class to selected stars
+        for (let i = 0; i < ratingValue; i++) {
+          stars[i].classList.add('checked');
+        }
+
+        // Send the rating to the server using AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'record_rating.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onload = function () {
+          console.log(xhr.responseText);
+          // Handle the response from the server if needed
+        };
+        xhr.send('rating=' + ratingValue);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

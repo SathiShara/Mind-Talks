@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mindtalk.css">
+  <title>MindTalk</title>
+</head>
+<body>
+
+<!-- Include a button to toggle dark mode -->
+
+  <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero"><h1><span>M</span>ind<span>   T</span>alk</h1></a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger"><div class="bar"></div></div>
+          <ul>
+            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="get_counselor_details.php" data-after="Service">Appointments</a></li>
+            <li><a href="Counselor.html" data-after="Projects">Counselors</a></li>
+            <li><a href="#about" data-after="About">About</a></li>
+            <li><a href="#contact" data-after="Contact">Contact</a></li>
+            <li><a href="chatApp/index.php" data-after="Contact">Chat</a></li>
+            <li><a href="rating.html" data-after="Contact">Rate Us</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+
+
+  <!-- Hero Section  -->
+  <section id="hero">
+    <div class="hero container">
+      <div>
+        <h1>Join<span></span></h1>
+        <h1>with <span></span></h1>
+        <h1>Us<span></span></h1>
+       <a href="SignIn.html" type="button" class="cta">SIGN IN</a>
+       <a href="SignUp.html" type="button" class="cta">SIGN UP</a>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero Section  -->
+
+  <!-- Service Section -->
+  <section id="services">
+    <div class="services container">
+      <div class="service-top">
+        <h1 class="section-title">Mind<span>T</span>alk</h1>
+        <p></p>
+      </div><a href="userGuid.html" class="cta">USER GUID</a>
+      <div class="service-bottom">
+        <div class="service-item">
+  <div class="icon"><img src="data:image/png;base64,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"></div>
+          <h2><u>Our Vision</u></h2>
+          <p>"To create a world where mental health support is easily accessible, stigma-free, and personalized, empowering individuals to lead happier and more fulfilling lives."
+			 </p><div class="container2">
+<div class="overlay overlayLeft">
+<div class="text"></div>
+</div>
+</div></div>
+
+       
+        <div class="service-item">
+            <div class="icon"><img src="data:image/png;base64,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"></div>
+            
+		  <h2><u>Our Mission</u></h2>
+          <p>"Our mission is to provide a secure and user-friendly online platform that connects individuals with licensed counselors and mental health professionals"</p><div class="container2">
+<div class="overlay overlayLeft">
+<div class="text"></div>
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Service Section -->
+
+  <!-- Projects Section -->
+    <section id="projects">
+    <div class="projects container">
+      <div class="projects-header">
+        <h1 class="section-title">Our <span>Counselors</span></h1>
+      </div>
+      <div class="all-projects">
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Clinical Psychologist</h1>
+            <h2>Focuses on assessing and treating mental, emotional, and behavioral disorders through therapy and psychological techniques.</h2>
+            <p></p>
+			   
+		    <a href="get_counselor_details.php"><big>more details</big></a>
+		  </div>
+		    
+          <div class="project-img">
+            <img src="./img/clinical.png" alt="img">
+
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Licensed Professional Counselor</h1>
+            <h2>Offers counseling and therapy services to individuals, families, and groups, often addressing issues like stress, anxiety, and relationships.</h2>
+            <a href="get_counselor_details.php"><big>more details</big></a>
+          </div>
+          <div class="project-img">
+            <img src="./img/licened.png" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Marriage and Family Therapist</h1>
+            <h2>Specializes in helping couples and families navigate relationship dynamics and improve communication.</h2>
+            <a href="get_counselor_details.php"><big>more details</big></a>
+          </div>
+          <div class="project-img">
+            <img src="./img/marriage.png" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>School Counselor</h1>
+            <h2>Works in educational settings, offering guidance on academic and social-emotional issues for students</h2>
+            <a href="get_counselor_details.php"><big>more details</big></a>
+          </div>
+          <div class="project-img">
+            <img src="./img/school.png" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Career Counselor</h1>
+            <h2>Helps individuals explore career options, make career-related decisions, and navigate job transitions.</h2>
+            <a href="get_counselor_details.php"><big>more details</big></a>
+          </div>
+          <div class="project-img">
+            <img src="./img/career.png" alt="img">
+          </div>
+        </div>
+		<div class="project-item">
+          <div class="project-info">
+            <h1>Child and Adolescent Counselor</h1>
+            <h2>Specializes in addressing mental health issues specific to children and teenagers, such as behavioral problems or developmental disorders.</h2>
+       
+		    <a href="get_counselor_details.php" target="_blank"><big>more details</big></a>
+		  </div>
+		    
+          <div class="project-img">
+            <img src="./img/child.png" alt="img">
+          </div>
+        </div>
+        
+      </div>
+	  
+    </div>
+  </section>
+  <!-- End Projects Section -->
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about container">
+      <div class="col-left">
+        <div class="about-img">
+          <img src="./img/aa.png" alt="img">
+        </div>
+      </div>
+      <div class="col-right">
+        <h1 class="section-title">About <span>Us</span></h1>
+        <h2>About Mind Talk</h2>
+<p>"Mind Talk" is to make mental health support available to everyone, no matter where they are or what's going on in their lives. We want to help people feel better and be happier. Let's join forces and create a solution that makes a real difference in people's lives!</p>
+        <a href="userGuid.html" class="cta">User Guid</a>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact container">
+      <div><h1 class="section-title">Contact <span>info</span></h1></div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/wired/64/000000/ringing-phone.png"/></div>
+          <div class="contact-info">
+            <h1>Phone</h1>
+            <h2><a href="tel:(+94) 11 885 6656"> (+94) 11 885 6656</a></h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/wired/64/000000/email.png"/></div>
+          <div class="contact-info">
+            <h1>Email</h1><a href="mailto:info@techmentors.lk">info@mindtalk.com</h2></a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">
+		  <a href="https://goo.gl/maps/QXpPk5REZ5beUnFF7"><img src="https://img.icons8.com/wired/64/000000/address.png"/></a></div>
+          <div class="contact-info">
+            <h1>Address</h1>
+            <h2><font color="green">Mind Talk,
+                No. 386,Nawala Road,Rajagiriya.</h2></font>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container">
+    <div class="brand"><h1><span>M</span>ind<span> T</span>alk</h1></div>
+    <h2>Follow Us On</h2>
+      <div class="social-icon">
+<div class="social-item">
+<a href="#"><img src="https://img.icons8.com/fluent/48/000000/facebook-new.png"/></a>
+</div>
+<div class="social-item">
+<a href="#"><img src="https://img.icons8.com/cute-clipart/40/000000/linkedin.png"/></a>
+</div>
+<div class="social-item">
+<a href="#"><img src="https://img.icons8.com/ultraviolet/40/000000/instagram-new.png"/></a>
+</div>
+</div>
+      <p>Copyright © 2023 MindTalk. All rights reserved</p>
+    </div>
+  </section>
+  <!-- End Footer -->
+  <script src="./test.js"></script>
+</body>
+</html>

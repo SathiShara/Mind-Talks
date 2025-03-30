@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Guide</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="tabStyle.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial;
+      box-sizing: border-box;
+    }
+
+    .tablink {
+      background-color: #00cc66;
+      color: rgb(17, 16, 16);
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-size: 17px;
+      width: 50%;
+    }
+
+    .tablink:hover {
+      background-color: #b3ffb3;
+    }
+
+    .tabcontent {
+      color: rgb(22, 21, 21);
+      display: none;
+      padding: 100px 20px;
+      height: 100%;
+    }
+
+    #patient {
+      background-image: url("bg_rating.jpg");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      text-align: center;
+    }
+    #counselor {
+    text-align: center;
+}
+    ol {
+      list-style-type: decimal;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .about-section {
+      padding: 50px;
+      text-align: center;
+      background-image: url("bg5.jpg");
+      color: #006666;
+    }
+
+    .footer {
+      padding: 30px;
+      text-align: center;
+      background: black;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    h2 {
+      color: #555;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="brand">
+        <h1><span>M</span>ind<span>T</span>alk</h1>
+    </div>
+    <a href="index.html">HOME</a>
+    <a href="get_counselor_details.php">APPOINTMENT</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#contact">CONTACT US</a>
+    <a href="ChatApp/index.php">CHAT</a>
+    <a href="rating.html">RATE US</a>
+</div>
+  
+<div class="about-section">
+  <h1>User Guide</h1>
+  <p>Please tap on your user type to get instructions</p>
+</div>
+
+<button class="tablink" onclick="openPage('patient', this, 'green')"><span>Are you Patient?</span></button>
+<button class="tablink" onclick="openPage('counselor', this, 'green')" id="defaultOpen">Are you Counselor?</button>
+
+<div id="patient" class="tabcontent">
+  <h1>Patient Guide</h1>
+  <h2>Instructions:</h2>
+  <ol>
+    <li>Visit our website</li>
+    <li>Click on the "Sign Up" button.</li>
+    <li>Choose "Patient" as your user type.</li>
+    <li>Fill out the registration form with your username, password, and email.</li>
+    <li>Click the "SIGN UP" button to create your account.</li>
+    <li>Once registered, log in to your account using your credentials.</li>
+    <li>Browse the list of available counselors.</li>
+    <li>Select a counselor and choose a suitable time for your counseling session.</li>
+    <li>On the scheduled date and time, log in to your account to access the chat for counseling.</li>
+  </ol>
+</div>
+
+<div id="counselor" class="tabcontent">
+  <h1>Counselor Guide & Registration</h1>
+  <p>Thank you for considering joining our counseling platform as a counselor. Follow the instructions below to get started:</p>
+  <h2>Instructions:</h2>
+  <ol>
+    <li>Visit our website</li>
+    <li>Click on the "Sign Up" button.</li>
+    <li>Choose "Counselor" as your user type.</li>
+    <li>Fill out the registration form with your username, password, and email.</li>
+    <li>Click the "SIGN UP" button to create your account.</li>
+    <li>Once registered, log in to your account using your credentials.</li>
+    <li>Then you have to prove your qualifications, for that fill out the registration form</li>
+  </ol>
+
+ 
+  <h2>Scheduling Appointments:</h2>
+  <ol>
+    <li>After successful registration, click on the "Schedule Appointment" link.</li>
+    <li>Choose the date and time slots when you are available for counseling.</li>
+    <li>Patients will view your availability and book appointments accordingly.</li>
+  </ol>
+
+  <p>Thank you for your commitment to providing quality counseling services on our platform. If you have any questions or issues, feel free to contact our support team.</p>
+</div>
+
+<script>
+  function openPage(pageName, elmnt, color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+  }
+
+  document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>

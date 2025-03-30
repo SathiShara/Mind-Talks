@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <style>
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        html,
+        body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            background-image: url('bg5.jpg');
+        }
+
+        h4 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #54b881;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        form h4 span {
+            color: #0d5324;
+            font-weight: 700;
+        }
+
+        label {
+            font-size: 12.5px;
+            color: #000;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        form {
+            padding: 30px;
+            background: #fefefe;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.12);
+        }
+
+        form p {
+            line-height: 155%;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #000;
+            opacity: 0.65;
+            font-weight: 400;
+            max-width: 250px;
+            text-align: center;
+        }
+
+        a.discrete {
+            color: rgba(0, 0, 0, 0.4);
+            font-size: 14px;
+            border-bottom: solid 1px rgba(0, 0, 0, 0);
+            padding-bottom: 4px;
+            margin-left: auto;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+
+        a.discrete:hover {
+            border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .user-type label {
+            font-size: 14px;
+            margin-right: 20px;
+            color: #000;
+            opacity: 0.8;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .user-type input[type="radio"] {
+            display: none;
+            /* Hide the actual radio buttons */
+        }
+
+        .user-type label::before {
+            content: '\2022';
+            /* Unicode character for a bullet point */
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            margin-right: 5px;
+            vertical-align: -0.1em;
+            color: #fff;
+            /* Color of the bullet point */
+            border-radius: 50%;
+            background-color: #aacab5;
+            /* Background color when not selected */
+            text-align: center;
+            line-height: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .user-type input[type="radio"]:checked+label::before {
+            background-color: #0d5324;
+            /* Background color when selected */
+        }
+
+        button {
+            -webkit-appearance: none;
+            width: auto;
+            min-width: 100px;
+            border-radius: 24px;
+            text-align: center;
+            padding: 15px 40px;
+            margin-top: 5px;
+            background-color: #0d5324;
+            color: #fff;
+            font-size: 14px;
+            margin-left: auto;
+            font-weight: 500;
+            box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.13);
+            border: none;
+            transition: all 0.3s ease;
+            outline: 0;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 2px 6px -1px rgba(131, 230, 164, 0.65);
+        }
+
+        button:active {
+            transform: scale(0.99);
+        }
+
+        input {
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            width: 100%;
+            box-sizing: border-box;
+            transition: all 0.3s linear;
+            color: #000;
+            font-weight: 400;
+            -webkit-appearance: none;
+        }
+
+        input:focus {
+            border-bottom: solid 1px #54b881;
+            outline: 0;
+            box-shadow: 0 2px 6px -8px rgba(49, 109, 69, 0.45);
+        }
+
+        .floating-label {
+            position: relative;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .floating-label label {
+            position: absolute;
+            top: calc(50% - 7px);
+            left: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+            padding-left: 5px;
+        }
+
+        .floating-label input:not(:placeholder-shown) {
+            padding: 15px 0px 5px 0px;
+        }
+
+        .floating-label input:not(:placeholder-shown)+label {
+            transform: translateY(-15px);
+            opacity: 0.7;
+        }
+
+        .floating-label input:valid:not(:placeholder-shown)+label+.icon svg {
+            opacity: 1;
+        }
+
+        .floating-label input:not(:valid):not(:focus)+label+.icon {
+            animation-name: shake-shake;
+            animation-duration: 0.3s;
+        }
+
+        @keyframes shake-shake {
+            0% {
+                transform: translateX(-3px);
+            }
+
+            20% {
+                transform: translateX(3px);
+            }
+
+            40% {
+                transform: translateX(-3px);
+            }
+
+            60% {
+                transform: translateX(3px);
+            }
+
+            80% {
+                transform: translateX(-3px);
+            }
+
+            100% {
+                transform: translateX(0px);
+            }
+        }
+
+        .session {
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            height: auto;
+            margin: auto auto;
+        }
+
+        .left {
+            width: 220px;
+            height: auto;
+            min-height: 100%;
+            position: relative;
+            background-image: url("bg_SignUp_SignIn.jpg");
+            background-size: cover;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .user-type input[type="radio"]:checked~.counselor-fields {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .counselor-fields input {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function updateUserType() {
+            var userType = document.querySelector('input[name="userType"]:checked');
+            if (userType) {
+                // Store the selected user type in a hidden input field
+                document.getElementById('selectedUserType').value = userType.value;
+
+                // Show/hide counselor fields based on the selected user type
+                var counselorFields = document.getElementById('counselorFields');
+                if (userType.value === 'counselor') {
+                    counselorFields.style.display = 'flex';
+                } else {
+                    counselorFields.style.display = 'none';
+                }
+            }
+        }
+
+        function validateForm() {
+            var selectedUserType = document.getElementById('selectedUserType').value;
+
+            // Check if the user type is already filled
+            if (!selectedUserType) {
+                alert('Please select a user type.');
+                return false; // Prevent form submission
+            }
+
+            // If all validation passed, allow form submission
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="session">
+        <div class="left"></div>
+        <form action="signup.php" method="post" class="log-in" autocomplete="off" onsubmit="return validateForm()">
+            <h4>We are <span>MindTalk</span></h4>
+            <p>Welcome to MindTalk! Sign up for personal growth and support.<br /> Your well-being matters!</p>
+
+            <div class="user-type">
+                <input type="radio" id="patient" name="userType" value="patient" checked onchange="updateUserType()">
+                <label for="patient">Patient</label>
+
+                <input type="radio" id="counselor" name="userType" value="counselor" onchange="updateUserType()">
+                <label for="counselor">Counselor</label>
+            </div>
+
+            <input type="hidden" id="selectedUserType" name="selectedUserType">
+
+            <div class="floating-label">
+                <input placeholder="User Name" type="text" name="username" id="username" autocomplete="off">
+                <label for="username">User Name:</label>
+                <div class="icon"></div>
+            </div>
+
+            <div class="floating-label">
+                <input placeholder="Email" type="email" name="email" id="email" autocomplete="off">
+                <label for="email">Email:</label>
+                <div class="icon"></div>
+            </div>
+
+            <div class="floating-label">
+                <input placeholder="Password" type="password" name="password" id="password" autocomplete="off">
+                <label for="password">Password:</label>
+                <div class="icon"></div>
+            </div>
+
+            <div class="floating-label">
+                <input placeholder="Confirm Password" type="password" name="confirm_password" id="confirm_password"
+                    autocomplete="off">
+                <label for="confirm_password">Confirm Password:</label>
+                <div class="icon"></div>
+            </div>
+
+            <div class="counselor-fields" id="counselorFields" style="display: none;">
+                <div class="floating-label">
+                    <input placeholder="fullname" type="text" name="fullname" id="fullname" autocomplete="off">
+                    <label for="fullname">Full Name:</label>
+                    <div class="icon"></div>
+                </div>
+                
+                <div class="floating-label">
+                    <input placeholder="Profession" type="text" name="profession" id="profession" autocomplete="off">
+                    <label for="profession">Profession:</label>
+                    <div class="icon"></div>
+                </div>
+
+                <div class="floating-label">
+                    <input placeholder="licennumber" type="text" name="licennumber" id="licennumber" autocomplete="off">
+                    <label for="licennumber">Licen Number:</label>
+                    <div class="icon"></div>
+                </div>
+            </div>
+
+            <button type="submit">SIGN UP</button>
+            <a href="SignIn.html" class="discrete" target="_blank">Already have an Account? SIGN IN</a>
+        </form>
+    </div>
+</body>
+
+</html>
